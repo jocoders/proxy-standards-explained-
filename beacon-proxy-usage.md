@@ -1,6 +1,5 @@
 ### **🛡️ What is a Beacon Proxy used for?**  
 
-💡 **Simple Explanation:**  
 A **Beacon Proxy** allows **many proxies** to share the **same implementation contract**. Instead of upgrading each proxy **one by one**, you can **upgrade all at once** by changing the implementation address in a **Beacon contract**.  
 
 🚨 **Why is this useful?**  
