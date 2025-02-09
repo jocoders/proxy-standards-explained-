@@ -36,15 +36,6 @@ contract MyContract is Initializable {
     }
 }
 ```
-
-### **🛠 How does it work?**  
-1️⃣ **First deployment:** Call `initialize(100)`. This sets `value = 100`.  
-2️⃣ **Upgrade contract:** Add `initializeV2(string _message)`.  
-3️⃣ **After upgrade:** Call `initializeV2("Hello!")`. This sets `message = "Hello!"`.  
-4️⃣ **Cannot call `initializeV2` again**, because version `2` is already used!  
-
----
-
 ### **💡 Summary**  
 🔹 **Use `reinitializer(version)`** when adding **new features in an upgrade**.  
 🔹 **Each version is used only once**, so old logic is not reset.  
