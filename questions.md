@@ -5,4 +5,4 @@
 - **Explanation:**
   1. `selfdestruct` **does not remove** code if the contract was deployed in a previous transaction.
   2. Only **storage is cleared**, but `delegatecall` does not use implementation storage.
-  3. The proxy still works, even if the implementation self-destructs.
+  3. The proxy still works, even if the implementation self-destructs..
