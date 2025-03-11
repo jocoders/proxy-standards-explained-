@@ -6,6 +6,7 @@
 4. **No Changing Variable Types or Order** 🚨📦 – Changing types or reordering variables **corrupts storage**. Always add new variables **at the end** of the contract.  
 5. **No `selfdestruct` or `delegatecall` in Implementation** 🚀🔥 – Attackers can **destroy** the implementation or exploit **delegatecall**. Avoid both in upgradeable contracts.  
 6. **No Removing Inherited Contracts** ⛔📜 – Removing parents **shifts storage layout**, breaking the contract. Always **keep the inheritance structure stable**.
+---   
 
 **Question 2: What is a beacon proxy used for?**:  
 A **Beacon Proxy** lets many proxies share the same implementation contract. Instead of upgrading each proxy separately, you update the **Beacon contract**, and all proxies instantly use the new logic.  
@@ -27,4 +28,5 @@ A **Beacon Proxy** lets many proxies share the same implementation contract. Ins
 ### **When to use?**  
 ✅ Best for **many proxies sharing the same logic** (e.g., user accounts in a dApp).  
 ❌ Not needed for a **single proxy** (UUPS or Transparent Proxy is better).
+---
    
