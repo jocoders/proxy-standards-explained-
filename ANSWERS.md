@@ -1,4 +1,4 @@
-The **OpenZeppelin (OZ) upgrade tool for Hardhat** helps prevent **six common mistakes** when upgrading smart contracts:  
+**Question 1: The OZ upgrade tool for hardhat defends against 6 kinds of mistakes. What are they and why do they matter?**:  
 
 1. **Changing Storage Layout** – Avoids breaking data storage by ensuring variables stay in the correct order.  
 2. **Removing Inherited Contracts** – Prevents removing parent contracts, which could change storage and break functionality.  
@@ -7,4 +7,3 @@ The **OpenZeppelin (OZ) upgrade tool for Hardhat** helps prevent **six common mi
 5. **Using `selfdestruct`** – Blocks contract destruction, as it could make upgrades impossible.  
 6. **Changing Constants and Immutables** – Prevents modifying values that should never change after deployment.  
 
-These checks matter because they **protect contract data, ensure smooth upgrades, and prevent accidental loss of funds or functionality**.
