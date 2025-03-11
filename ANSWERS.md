@@ -29,4 +29,19 @@ A **Beacon Proxy** lets many proxies share the same implementation contract. Ins
 ✅ Best for **many proxies sharing the same logic** (e.g., user accounts in a dApp).  
 ❌ Not needed for a **single proxy** (UUPS or Transparent Proxy is better).
 ---
+
+**Question 3: Why does the openzeppelin upgradeable tool insert something like uint256[50] private __gap; inside the contracts? To see it, create an upgradeable smart contract that has a parent contract and look in the parent.**
+The **OpenZeppelin upgradeable tool** adds `uint256[50] private __gap;` to **reserve storage slots** for future upgrades.  
+
+### **Why is it needed?**  
+⚠️ **Storage layout must stay the same** – Adding a new variable in the middle **shifts storage** and **corrupts data**.  
+
+### **How does it work?**  
+- `uint256[50]` **reserves 50 empty slots** in storage.  
+- When upgrading, **new variables** can use these slots **without breaking the contract**.  
+
+### **Benefit?**  
+✅ **Safe upgrades** – No risk of overwriting important data.  
+✅ **Flexibility** – Allows adding new variables **without changing storage order**.
+---
    
