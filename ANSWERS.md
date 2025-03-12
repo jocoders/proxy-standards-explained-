@@ -1,3 +1,4 @@
+### WEEK_1:
 ### **Question 1: The OZ upgrade tool for hardhat defends against 6 kinds of mistakes. What are they and why do they matter?**:  
 
 1. **No Constructors** – Constructors only run in the implementation contract, not the proxy, causing lost values. Use an **initializer function** instead.  
@@ -25,9 +26,10 @@ A **Beacon Proxy** lets many proxies share the same implementation contract. Ins
 **Higher gas cost** – Each proxy must fetch the implementation from the Beacon before calling it.  
 **More complexity** – Requires three contracts: **Proxy, Beacon, and Implementation**.  
 
-**When to use?**  
+**When to use?**
 Best for **many proxies sharing the same logic** (e.g., user accounts in a dApp).  
 Not needed for a **single proxy** (UUPS or Transparent Proxy is better).
+
 ---
 
 ### **Question 3: Why does the openzeppelin upgradeable tool insert something like uint256[50] private __gap; inside the contracts? To see it, create an upgradeable smart contract that has a parent contract and look in the parent.**
@@ -43,6 +45,7 @@ The **OpenZeppelin upgradeable tool** adds `uint256[50] private __gap;` to **res
 **Benefit?**  
 **Safe upgrades** – No risk of overwriting important data.  
 **Flexibility** – Allows adding new variables **without changing storage order**.
+
 ---
 
 ### **Question 4: What is the difference between initializing the proxy and initializing the implementation? Do you need to do both? When do they need to be done?**
@@ -61,6 +64,25 @@ Must use `_disableInitializers()` to prevent accidental initialization.
 - **Implementation should block initialization** from the start.  
 
 **Rule: Only initialize the proxy!** 
+
 ---
+
+### **Question 5: What is the use for the reinitializer? Provide a minimal example of proper use in Solidity**
+**Reinitializer** is used in upgradeable contracts to **initialize new features** when upgrading.  
+
+**Why is it needed?**  
+- It **only runs once per version**, so old initialization logic is not repeated.  
+- It **allows safe upgrades**, adding new setup logic without overwriting old data.  
+- It **prevents accidental re-initialization**, making contracts more secure.  
+
+**How to use it?**  
+When upgrading a contract, use **reinitializer(version)** to set up new features. Each version can be used **only once**, keeping upgrades safe and organized.
+
+---
+
+**Ethernaut 16: [solution](https://github.com/jocoders/ethernaut/blob/main/test/Preservation.t.sol)** 
+**Ethernaut 24: [solution](https://github.com/jocoders/ethernaut/blob/main/test/Preservation.t.sol)** 
+
+
 
 
