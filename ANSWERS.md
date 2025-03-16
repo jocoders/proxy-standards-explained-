@@ -81,7 +81,8 @@ When upgrading a contract, use **reinitializer(version)** to set up new features
 ---
 
 **Ethernaut 16: [solution](https://github.com/jocoders/ethernaut/blob/main/test/Preservation.t.sol)** 
-**Ethernaut 24: [solution](https://github.com/jocoders/ethernaut/blob/main/test/Preservation.t.sol)** 
+
+**Ethernaut 24: [solution](https://github.com/jocoders/ethernaut/blob/main/test/PuzzleWallet.t.sol)** 
 
 
 
