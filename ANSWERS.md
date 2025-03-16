@@ -135,6 +135,7 @@ When upgrading a contract, use **reinitializer(version)** to set up new features
 ### WEEK_2:
 
 **Challenge #12 - Climber: [solution](https://github.com/jocoders/damn-vulnerable-defi/blob/main/test/Climber.t.sol)** 
+
 **Challenge #11 - Backdoor: [solution](https://github.com/jocoders/damn-vulnerable-defi/blob/main/test/Backdoor.sol)** 
 
 
