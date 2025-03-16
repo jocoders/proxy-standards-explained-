@@ -88,7 +88,53 @@ When upgrading a contract, use **reinitializer(version)** to set up new features
 
 ---
 
+### **If a proxy calls an implementation, and the implementation self-destructs in the function that gets called, what happens?**
+- The **proxy’s storage is safe** and still works.  
+- The **implementation contract's code stays** on the blockchain.  
+- If the implementation contract had any storage (outside delegatecall use), **that storage is cleared**.  
+- **Ether in the implementation contract is sent to a target address.**  
+
+### **If a proxy calls an empty address or an implementation that was previously self-destructed, what happens?**
+- If a proxy calls an empty address (`0x0`) using `delegatecall` → it returns `true`, but does nothing.
+- If a proxy calls an implementation that self-destructed in the same transaction → it's like calling `0x0`, so `delegatecall` returns `true`, but does nothing.
+- If a proxy calls an implementation that self-destructed in a previous transaction → the code still exists, so `delegatecall` works as usual. 
+
+### **If a user calls a proxy makes a delegatecall to A, and A makes a regular call to B, from A's perspective, who is msg.sender? from B's perspective, who is msg.sender? From the proxy's perspective, who is msg.sender?**
+- A - msg.sender from proxy
+- B - msg.sender = Proxy
+- Proxy - user
+
+## **If a proxy makes a delegatecall to A, and A does address(this).balance, whose balance is returned, the proxy's or A?**
+- Proxy
+
+## **If a proxy makes a delegatecall to A, and A calls codesize, is codesize the size of the proxy or A?**
+- Proxy
+
+## **If a delegatecall is made to a function that reverts, what does the delegatecall do?**
+-  Tt reverts, success: false, dalldata: 0x
+
+## **Under what conditions does the Openzeppelin Proxy.sol overwrite the free memory pointer? Why is it safe to do this?**
+1. **Copying `msg.data` before `delegatecall`.**  
+2. **Copying return data after `delegatecall`.**  
+
+**It's safe because:**  
+- The contract **never returns to Solidity code after `delegatecall`** (it either `return`s or `revert`s).  
+- **Each transaction starts with clean memory**, so no old data remains.  
+- It avoids using Solidity’s **free memory pointer (`0x40`)**, making it more gas-efficient.
+
+## **If a delegatecall is made to a function that reads from an immutable variable, what will the value be?**
+- Get immutable var value of implementation
+
+## **If a delegatecall is made to a contract that makes a delegatecall to another contract, who is msg.sender in the proxy, the first contract, and the second contract?**
+- Proxy: user
+- ImplementationA: user
+- ImplementationB: user
+
+---
+
 ### WEEK_2:
+
+
 
 
 
