@@ -137,21 +137,25 @@ When upgrading a contract, use **reinitializer(version)** to set up new features
 ##**Upgradeable contracts:**
 
 **LimitedEditionNFT: [contract code](https://github.com/jocoders/nft-staking-upgradeable/blob/main/contracts/LimitedEditionNFT.sol)** 
+
 **LimitedEditionNFT: [blockchain](https://sepolia.etherscan.io/address/0x0aEe5C830A1744aFBEfba9A63eC1a384f159f6b9#code)** 
 
 ---
 
 **RewardToken: [contract code](https://github.com/jocoders/nft-staking-upgradeable/blob/main/contracts/RewardToken.sol)** 
+
 **RewardToken: [blockchain](https://sepolia.etherscan.io/address/0xf4016CCBC8d3D9d3b19Fa26D4a8C426678e80F3B#code)** 
 
 ---
 
 **StakeNFT: [contract code](https://github.com/jocoders/nft-staking-upgradeable/blob/main/contracts/StakeNFT.sol)** 
+
 **StakeNFT: [blockchain](https://sepolia.etherscan.io/address/0x95a210ffDCb44d53Ef6eF22fe18262B357a81a6c#readProxyContract)**
 
 ---
 
 **Challenge #12 - Climber: [solution](https://github.com/jocoders/damn-vulnerable-defi/blob/main/test/Climber.t.sol)** 
+
 **Challenge #11 - Backdoor: [solution](https://github.com/jocoders/damn-vulnerable-defi/blob/main/test/Backdoor.sol)** 
 
 
