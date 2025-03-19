@@ -134,7 +134,8 @@ When upgrading a contract, use **reinitializer(version)** to set up new features
 
 ### WEEK_2:
 
-**Upgradeable contracts:**
+##**Upgradeable contracts:**
+
 **LimitedEditionNFT: [contract code](https://github.com/jocoders/nft-staking-upgradeable/blob/main/contracts/LimitedEditionNFT.sol)** 
 **LimitedEditionNFT: [blockchain](https://sepolia.etherscan.io/address/0x0aEe5C830A1744aFBEfba9A63eC1a384f159f6b9#code)** 
 
